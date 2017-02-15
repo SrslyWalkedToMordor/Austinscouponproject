@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<%= image_tag @coupon.image.url(:large) %>
+<p>
+  <strong>Title:</strong>
+  <%= @coupon.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @coupon.content %>
+</p>
+<% if current_admin%>
+  <%= link_to 'Edit', edit_coupon_path(@coupon) %> |
+  <%= link_to 'Back', coupons_path %>
+<% end %>

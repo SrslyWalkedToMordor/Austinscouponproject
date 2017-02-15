@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<%= content_for :generate_navbar do %>
+  <h1 style="text-align: left; margin-left: 20px; color: white">Use a Coupon</h1>
+  <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete', style: "float: right; color: white; margin: 0px 20px 10px 0px" %>
+<% end %>
+<div class="conatainer" style="width: 600px; margin-top: 50px; padding: 15px 15px 15px 15px; margin: 0 auto">
+  
+      <% @coupons.each do |coupon| %>
+        <table width="100%" align="center" style="margin-bottom: 1em" >
+          <tbody>
+            <tr style="border: solid; border-color: #fcdfff; border-width: 3px; background-color: white;" >
+                <td align="left"><%= image_tag coupon.image.url(:thumb) %></td>
+                <td style="width: 100%; vertical-align: top">
+                  <div class="container-fluid" style="text-align: center; background-color: mediumvioletred; color: white">
+                    <%= coupon.title %> 
+                  </div>
+                  
+                  <div class="container-fluid">
+                    <%= coupon.content %>
+                  </div>
+                  <hr>
+                  <div class="container-fluid">  
+                    <% if current_admin %>
+                      <%= link_to 'Edit', edit_coupon_path(coupon)%>
+                      <%= link_to 'Destroy', coupon, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+                    <% end %>
+                      <%=link_to 'Use', use_coupon_path(coupon), method: :post, class: "btn btn-primary", data: {confirm: 'Are you sure?' }, style: "float: right; margin-top: 32px" %>
+                  </div>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    
+</div>
+<br>
+<% if current_admin %>
+  <%= link_to 'New Coupon', new_coupon_path %>
+<% end %>

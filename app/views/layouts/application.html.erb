@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>I love you</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body style="background-color: #dd5cad;">
+  <div class="container-fluid" style="background-color: white" align="center">
+    <img src="http://aetew.com/wp-content/uploads/2017/01/Valentines-Day-Decor-.jpg" width="600px"/>
+  </div>
+  <nav class="navbar  navbar-default" style="background-color: mediumvioletred; margin: 5px"> <%= yield :generate_navbar %>
+  </nav>
+  <% if user_signed_in? %>
+  <br>
+  <% end %>
+<%= yield %>
+
+</body>
+</html>

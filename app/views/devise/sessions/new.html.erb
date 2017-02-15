@@ -1,0 +1,67 @@
+<!--<h2>Log in</h2>-->
+
+<!--<%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>-->
+<!--<div class="container" id="sign-in">-->
+<!--    <div class="field col-centered" >-->
+     
+<!--      <%= f.email_field :email, autofocus: true, wrapper: {class: 'col-lg-3 col-centered'} %>-->
+<!--    </div>-->
+  
+<!--    <div class="field col-centered">-->
+      
+<!--      <%= f.password_field :password, autocomplete: "off", wrapper: {class: 'col-lg-3 col-centered'} %>-->
+<!--    </div>-->
+  
+<!--    <% if devise_mapping.rememberable? -%>-->
+<!--      <div class="field">-->
+<!--        <%= f.check_box :remember_me %>-->
+<!--      </div>-->
+<!--    <% end -%>-->
+  
+<!--    <div class="actions">-->
+<!--      <%= f.submit "Log in", class: 'btn btn-primary' %>-->
+<!--    </div>-->
+<!--  <% end %>-->
+<!--</div>-->
+<!--<%= render "devise/shared/links" %>-->
+
+<% content_for :generate_navbar do %>
+  <h1 style="text-align: left; margin-left: 20px; color: white">Log in</h1>
+  <%= link_to 'Sign up',new_user_registration_path, style: "float: right; color: white; margin: 0px 20px 10px 0px" %>
+<% end %>
+
+
+<%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+	<div class="container" id="sign-in" style="width: 350px; margin-top: 100px; padding: 15px 15px 15px 15px; border-color: grey; border-style: solid; border-width: 1px; background-color: white">
+		<table style="width: 100%" align="center">
+			<tr>
+				<td colspan="2" style="width: 100%"><%= f.email_field :email, autofocus: true, wrapper: {class: 'col-centered'} %></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="width: 100%"><%= f.password_field :password, autocomplete: "off", wrapper: {class: 'col-centered'} %></td>
+			</tr>
+			<tr>
+				<td>
+					<div class="actions">
+					  <%= f.submit "Log in", class: 'btn btn-primary' %>
+					</div>
+				</td>
+			  <td align="right">
+					<% if devise_mapping.rememberable? -%>
+					  <div class="field">
+						<%= f.check_box :remember_me %>
+					  </div>
+					<% end -%>
+				</td>
+			</tr>
+			<tr>
+			  <td colspan="2"><hr></td>
+			</tr>
+			<tr>
+			  <td colspan="2" style="width: 100%">
+			    <%= render "devise/shared/links" %>
+			  </td>
+			</tr>
+		</table>
+	</div>
+<% end %>
