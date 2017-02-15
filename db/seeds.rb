@@ -4,7 +4,7 @@
 # Examples:
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-users = User.create({name: 'Austin', email: 'austinbarber9@gmail.com', password: '123Admin!', user_role: 1}  )
+#   Mayor.create(name: 'Emanuel', city: cities.first) 
+User.create({name: 'Austin', email: Rails.application.secrets.admin_user, password: Rails.application.secrets.admin_password, user_role: Rails.application.secrets.admin_user_role}  )
 
-User.create({name: 'Alma', email: '123123@gmail.com', password:'tacodog', user_role: 0})
+User.create({name: 'Alma', email: Rails.application.secrets.user, password: Rails.application.secrets.user_password, user_role: Rails.application.secrets.user_role})

@@ -264,7 +264,7 @@ Devise.setup do |config|
   # The following options are available, assuming the engine is mounted as:
   #
   #     mount MyEngine, at: '/my_engine'
-  #
+  config.secret_key = '535b20736ea29598fe9043ceea5ec7faea536553a82bfe163466acb2c148eb26ac5a68b2563327b97ceb52a6abe17ec49c4a9665f1f1eb22477192a69e5b7c22'
   # The router that invoked `devise_for`, in the example above, would be:
   # config.router_name = :my_engine
   #
